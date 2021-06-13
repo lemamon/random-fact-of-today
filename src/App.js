@@ -12,9 +12,15 @@ function App() {
   });
   const today = `${date.getUTCMonth() + 1}/${date.getDate()}`;
   const getRamdomFact4Today = async () => {
-    const data = await fetch(`http://numbersapi.com/${today}/date?json`).then(
-      (response) => response.json()
-    );
+    const headers = {
+      "x-rapidapi-key": "cff67389ccmsh13b98ebfc7cdf0bp12bc42jsn721078ef4add",
+      "x-rapidapi-host": "numbersapi.p.rapidapi.com",
+      useQueryString: true,
+    };
+    const data = await fetch(
+      `https://numbersapi.p.rapidapi.com/${today}/date?json`,
+      { headers }
+    ).then((response) => response.json());
     setFact(data);
   };
 
